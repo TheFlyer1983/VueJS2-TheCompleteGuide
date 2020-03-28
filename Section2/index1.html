@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue JS Section 2</title>
+  <script src="../vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h1 v-once>{{ title }}</h1> <!-- v-once - ensures the element is only rendered once. -->
+    <p>{{ sayHello() }} - <a v-bind:href="link">Google</a></p> <!-- v-bind: is a directive that binds the attribute to my Data in the Vue instance. -->
+    <hr>
+    <p v-html='finishedLink'></p> <!-- v-html - tells Vue JS to render HTML code and not escape it. -->
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        title: 'Hello World',
+        link: 'http://google.com',
+        finishedLink: '<a href="http://google.com">Google</a>'
+      },
+      methods: {
+        sayHello: function(){
+          this.title = 'Hello!'
+          return this.title;
+        }
+      }
+    });
+  </script>
+</body>
+</html>
