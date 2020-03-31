@@ -21,10 +21,18 @@
         counter: 0,
         secondCounter: 0
       },
-      computed: { // Anything in computed can be used just like the data object.
+      computed: { // Anything in computed can be used just like the data object.  Synchronously
         output: function(){
           console.log('Computed');
           return this.counter > 5 ? 'Greater than 5' : 'Smaller than 5';
+        }
+      },
+      watch: { // Asynchronously
+        counter: function(value){
+          var vm = this;
+          setTimeout(function(){
+            vm.counter = 0;
+          }, 2000);
         }
       },
       methods: {
