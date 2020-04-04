@@ -45,7 +45,9 @@ new Vue({
     width: function(){
       var vm = this;
       setTimeout(function(){
-        vm.width += 10
+        if (vm.width < 100){
+          vm.width += 10
+        }
       },2000);
     }
   },
@@ -54,7 +56,9 @@ new Vue({
       return this.effect = 'highlight';
     },
     startProgress: function() {
-      return this.width += 10;
+      if(this.width < 100){
+        return this.width += 10;
+      }
     }
   }
 });
