@@ -1,6 +1,6 @@
 const state = {
   funds: 10000,
-  stocks: []
+  stocks: [],
 };
 
 const mutations = {
@@ -11,7 +11,7 @@ const mutations = {
     } else {
       state.stocks.push({
         id: stockId,
-        quantity: quantity
+        quantity: quantity,
       });
     }
     state.funds -= stockPrice * quantity;
@@ -24,13 +24,13 @@ const mutations = {
       state.stocks.splice(state.stocks.indexOf(record), 1);
     }
     state.funds += stockPrice * quantity;
-  }
+  },
 };
 
 const actions = {
   sellStock({ commit }, order) {
-    commit("SELL_STOCK", order);
-  }
+    commit('SELL_STOCK', order);
+  },
 };
 
 const getters = {
@@ -41,18 +41,18 @@ const getters = {
         id: stock.id,
         quantity: stock.quantity,
         name: record.name,
-        price: record.price
+        price: record.price,
       };
     });
   },
   funds(state) {
     return state.funds;
-  }
+  },
 };
 
 export default {
   state,
   getters,
   mutations,
-  actions
+  actions,
 };

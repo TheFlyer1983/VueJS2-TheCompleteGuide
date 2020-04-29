@@ -5,15 +5,15 @@
 </template>
 
 <script>
-import Stock from "./Stock.vue";
+import Stock from './Stock.vue';
 export default {
   components: {
-    appStock: Stock
+    appStock: Stock,
   },
   computed: {
     stocks() {
       return this.$store.getters.stocks;
-    }
-  }
+    },
+  },
 };
 </script>

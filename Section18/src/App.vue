@@ -10,14 +10,14 @@
 </template>
 
 <script>
-import Header from "./components/Header";
+import Header from './components/Header';
 export default {
   components: {
-    appHeader: Header
+    appHeader: Header,
   },
   created() {
-    this.$store.dispatch("initStocks");
-  }
+    this.$store.dispatch('initStocks');
+  },
 };
 </script>
 

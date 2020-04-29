@@ -23,7 +23,7 @@
             class="btn btn-success"
             :disabled="insufficientQuantity || quantity <= 0 || !Number.isInteger(quantity)"
           >
-            {{ insufficientQuantity ? "Not enough Stocks" : "Sell" }}
+            {{ insufficientQuantity ? 'Not enough Stocks' : 'Sell' }}
           </button>
         </div>
       </div>
@@ -32,33 +32,33 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions } from 'vuex';
 export default {
-  props: ["stock"],
+  props: ['stock'],
   data() {
     return {
-      quantity: 0
+      quantity: 0,
     };
   },
   methods: {
     ...mapActions({
-      placeSellOrder: "sellStock"
+      placeSellOrder: 'sellStock',
     }),
     sellStock() {
       const order = {
         stockId: this.stock.id,
         stockPrice: this.stock.price,
-        quantity: this.quantity
+        quantity: this.quantity,
       };
       this.placeSellOrder(order);
       this.quantity = 0;
-    }
+    },
   },
   computed: {
     insufficientQuantity() {
       return this.quantity > this.stock.quantity;
-    }
-  }
+    },
+  },
 };
 </script>
 

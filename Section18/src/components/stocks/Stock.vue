@@ -22,7 +22,7 @@
             class="btn btn-success"
             :disabled="insufficientFunds || quantity <= 0"
           >
-            {{ insufficientFunds ? "Insufficient Funds" : "Buy" }}
+            {{ insufficientFunds ? 'Insufficient Funds' : 'Buy' }}
           </button>
         </div>
       </div>
@@ -32,10 +32,10 @@
 
 <script>
 export default {
-  props: ["stock"],
+  props: ['stock'],
   data() {
     return {
-      quantity: 0
+      quantity: 0,
     };
   },
   methods: {
@@ -43,11 +43,11 @@ export default {
       const order = {
         stockId: this.stock.id,
         stockPrice: this.stock.price,
-        quantity: this.quantity
+        quantity: this.quantity,
       };
-      this.$store.dispatch("buyStock", order);
+      this.$store.dispatch('buyStock', order);
       this.quantity = 0;
-    }
+    },
   },
   computed: {
     funds() {
@@ -55,8 +55,8 @@ export default {
     },
     insufficientFunds() {
       return this.quantity * this.stock.price > this.funds;
-    }
-  }
+    },
+  },
 };
 </script>
 
