@@ -4,9 +4,7 @@
       <div class="panel-heading">
         <h3 class="panel-title">
           {{ stock.name }}
-          <small>
-            (Price: {{ stock.price }} | Quantity {{ stock.quantity }})
-          </small>
+          <small> (Price: {{ stock.price }} | Quantity {{ stock.quantity }}) </small>
         </h3>
       </div>
       <div class="panel-body">
@@ -16,15 +14,16 @@
             class="form-control"
             placeholder="Quantity"
             v-model="quantity"
+            :class="{ danger: insufficientQuantity }"
           />
         </div>
         <div class="pull-right">
           <button
             @click="sellStock"
             class="btn btn-success"
-            :disabled="quantity <= 0"
+            :disabled="insufficientQuantity || quantity <= 0 || !Number.isInteger(quantity)"
           >
-            Sell
+            {{ insufficientQuantity ? "Not enough Stocks" : "Sell" }}
           </button>
         </div>
       </div>
@@ -54,6 +53,17 @@ export default {
       this.placeSellOrder(order);
       this.quantity = 0;
     }
+  },
+  computed: {
+    insufficientQuantity() {
+      return this.quantity > this.stock.quantity;
+    }
   }
 };
 </script>
+
+<style scoped>
+.danger {
+  border: 1px solid red;
+}
+</style>
