@@ -1,9 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'https://vue-axios-update-7e563.firebaseio.com/'
+  baseURL: 'https://identitytoolkit.googleapis.com/v1/accounts'
 });
-
-instance.defaults.headers.common['SOMETHING'] = 'something';
 
 export default instance;
