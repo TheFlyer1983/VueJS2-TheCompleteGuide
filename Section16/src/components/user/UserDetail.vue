@@ -23,6 +23,7 @@
       }
     },
     beforeRouteEnter(to, from, next){
+      /*eslint no-constant-condition: ["error", { "checkLoops": false }]*/
       if (true){
         next();
       } else {
