@@ -9,7 +9,7 @@ env:
 jobs:
   dependabot:
     runs-on: ubuntu-latest
-    if: ${{ github.actor == 'dependabot[bot]' }}
+    if: ${{ github.actor == 'dependabot[bot]' || github.actor == 'TheFlyer1983'}}
     steps:
       - name: Assign to One Project
         uses: srggrs/assign-one-project-github-action@1.2.1
