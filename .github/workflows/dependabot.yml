@@ -1,6 +1,7 @@
 name: Dependabot Automation
 on:
-  pull_request
+  pull_request:
+    types: [opened, reopened]
 
 env:
   MY_GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
