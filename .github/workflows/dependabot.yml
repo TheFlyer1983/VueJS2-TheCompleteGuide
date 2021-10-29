@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Assign to One Project
         uses: srggrs/assign-one-project-github-action@1.2.1
-        if: ${{ github.event.action == 'opened' || github.event.action == 'reopened' }}
+        # if: ${{ github.event.action == 'opened' || github.event.action == 'reopened' }}
         with:
           project: https://github.com/users/TheFlyer1983/projects/1
           column_name: 'In Progress'
